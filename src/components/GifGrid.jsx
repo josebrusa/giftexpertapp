@@ -9,6 +9,10 @@ const { images, isLoading } = useFetchGifs( category );
         <>
             
             <h3>{ category }</h3>
+
+            {
+                isLoading && (<p>Loading...</p>)
+            }
             <div className="card-grid">
                 {
                     images.map( ( image )  => (
