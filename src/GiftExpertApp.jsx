@@ -1,12 +1,15 @@
 import { useState } from "react"
+import { AddCategory } from "./components/AddCategory";
 
 export const GiftExpertApp = () => {
 
     const [ categories, setCategories ] = useState(['Dragon ball', 'evangelion']);
 
-    const onAddCategory = () => {
-        // setCategories( [...categories, 'los simpsons'] );
-        setCategories( cat => [ ...cat, 'valorant'])
+    const onAddCategory = ( newCategory ) => {
+        
+        // setCategories( cat => [ ...cat, 'valorant']);
+        setCategories( [ newCategory,...categories ] );
+
     }
 
     return (
@@ -16,8 +19,12 @@ export const GiftExpertApp = () => {
             
             {/* Input */}
 
+            {/* <AddCategory setCategories={ setCategories } /> */}
+            <AddCategory
+                onNewCategory={ ( value ) => onAddCategory( value ) }
+            />
+
             {/* Listado de Gif */}
-            <button onClick={() => onAddCategory()}>Agregar</button>
             <ol>
             {categories.map((category) => {
                 return (
