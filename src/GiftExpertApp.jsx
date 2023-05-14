@@ -7,6 +7,8 @@ export const GiftExpertApp = () => {
 
     const onAddCategory = ( newCategory ) => {
         
+        if( categories.includes( newCategory )) return;
+        
         // setCategories( cat => [ ...cat, 'valorant']);
         setCategories( [ newCategory,...categories ] );
 
